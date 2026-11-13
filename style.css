@@ -1,0 +1,132 @@
+/* 1. Design tokens and base styles */
+:root {
+  --navy: #172D42;
+  --white: #FFFFFF;
+  --ink: #263445;
+  --muted: #526477;
+  --accent: #356A9A;
+  --soft: #F3F6F9;
+  --line: #DCE3EA;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--white);
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.7;
+}
+a { color: inherit; }
+.container { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+
+/* 2. Navigation */
+.site-header { background: var(--white); border-bottom: 1px solid var(--line); }
+.nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { color: var(--navy); font-size: 1.45rem; font-weight: 800; text-decoration: none; letter-spacing: -.06em; }
+.brand span { color: var(--accent); }
+.nav-links { display: flex; align-items: center; gap: 25px; }
+.nav-links a { color: var(--muted); font-size: .76rem; font-weight: 600; text-decoration: none; }
+.nav-links a:hover, .footer a:hover, .text-link:hover { color: var(--accent); }
+
+/* 3. Hero */
+.hero { color: var(--white); background: var(--navy); overflow: hidden; }
+.hero-inner { min-height: 590px; display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 58px; padding-top: 62px; padding-bottom: 62px; }
+.eyebrow { margin: 0 0 16px; font-size: .7rem; font-weight: 700; letter-spacing: .16em; }
+.eyebrow span { color: #9CB8D1; }
+.accent { color: var(--accent); }
+.hero h1 { margin: 0 0 22px; font-size: clamp(3.4rem, 7vw, 6.1rem); line-height: .98; letter-spacing: -.075em; }
+.hero h1 span { color: #B8CDE0; }
+.hero-intro { max-width: 610px; color: #E2EAF1; font-size: .98rem; line-height: 1.9; }
+.location { margin: 18px 0 28px; color: #B8CDE0; font-size: .82rem; }
+.hero-photo-wrap { justify-self: end; width: min(100%, 390px); }
+.hero-photo { display: block; width: 100%; max-height: 500px; object-fit: contain; object-position: center; border: 1px solid rgba(255,255,255,.22); border-radius: 8px; }
+
+/* 4. Buttons and shared sections */
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 16px; padding: 13px 19px; border-radius: 4px; font-size: .78rem; font-weight: 700; text-decoration: none; transition: transform .2s ease, background .2s ease; }
+.button:hover { transform: translateY(-2px); }
+.button-light { color: var(--navy); background: var(--white); }
+.button-dark { color: var(--white); background: var(--navy); }
+.section { padding-top: 94px; padding-bottom: 94px; }
+.section-heading { max-width: 700px; margin-bottom: 38px; }
+.section-heading h2, .contact-inner h2 { margin: 0; color: var(--navy); font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.15; letter-spacing: -.055em; }
+.section-lead { color: var(--muted); margin: 15px 0 22px; }
+.section-tint { background: var(--soft); }
+.about-copy { max-width: 800px; color: var(--muted); font-size: 1.08rem; }
+
+/* 5. Experience */
+.experience-card { padding: 32px; background: var(--white); border: 1px solid var(--line); border-radius: 8px; }
+.experience-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+.experience-card h3, .education-card h3 { margin: 0 0 8px; color: var(--navy); font-size: 1.15rem; }
+.company, .date { margin: 0; color: var(--muted); font-size: .82rem; }
+.date { white-space: nowrap; }
+.experience-card ul, .paper-resume ul { padding-left: 20px; color: var(--muted); }
+.experience-card li { margin: 7px 0; }
+
+/* 6. Education and skills */
+.education-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 18px; }
+.education-card, .skill-card { padding: 25px; border: 1px solid var(--line); border-radius: 7px; background: var(--white); }
+.education-card.featured { background: var(--navy); color: var(--white); }
+.education-card.featured h3, .education-card.featured p, .education-card.featured span { color: var(--white); }
+.card-label { margin: 0 0 14px; color: var(--accent); font-size: .65rem; font-weight: 800; letter-spacing: .12em; }
+.education-card p:not(.card-label) { color: var(--muted); font-size: .82rem; }
+.education-card span { color: var(--muted); font-size: .75rem; }
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.skill-card { display: flex; align-items: center; min-height: 92px; color: var(--navy); font-size: .86rem; font-weight: 700; }
+
+/* 7. Paper resume preview and print */
+.resume-section .section-heading { margin-bottom: 28px; }
+.paper-resume { max-width: 850px; padding: 42px 48px; border: 1px solid var(--line); box-shadow: 0 12px 38px rgba(23,45,66,.07); }
+.paper-header { padding-bottom: 16px; border-bottom: 2px solid var(--navy); }
+.paper-header h2 { margin: 0 0 4px; color: var(--navy); font-size: 1.6rem; letter-spacing: .04em; }
+.paper-header p, .paper-block p { margin: 4px 0; color: var(--muted); font-size: .75rem; }
+.paper-header a { color: var(--accent); }
+.paper-block { margin-top: 17px; }
+.paper-block h3 { margin: 0 0 6px; color: var(--navy); font-size: .72rem; letter-spacing: .1em; }
+.paper-block li { margin: 2px 0; font-size: .72rem; }
+.paper-date { font-size: .7rem !important; }
+
+/* 8. Contact and footer */
+.contact-section { padding: 82px 0; color: var(--white); background: var(--navy); }
+.contact-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+.contact-inner h2 { color: var(--white); }
+.contact-inner p:not(.eyebrow) { max-width: 540px; color: #D6E1EB; }
+.contact-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 13px; }
+.text-link, .email-line { color: #E4EDF5; font-size: .82rem; font-weight: 600; text-decoration: none; }
+.email-line { margin-top: 8px; color: #B8CDE0; font-weight: 500; }
+.footer { padding: 22px 0; color: var(--muted); font-size: .72rem; }
+.footer-inner { display: flex; justify-content: space-between; }
+.footer a { text-decoration: none; }
+
+/* 9. Responsive layout */
+@media (max-width: 700px) {
+  .container { width: min(100% - 34px, 560px); }
+  .nav { align-items: flex-start; flex-direction: column; padding-top: 17px; padding-bottom: 15px; gap: 10px; }
+  .nav-links { width: 100%; flex-wrap: wrap; gap: 10px 17px; }
+  .nav-links a { font-size: .7rem; }
+  .hero-inner { grid-template-columns: 1fr; gap: 32px; padding-top: 54px; padding-bottom: 48px; }
+  .hero-photo-wrap { justify-self: start; width: min(100%, 330px); }
+  .hero-photo { max-height: 470px; }
+  .section { padding-top: 66px; padding-bottom: 66px; }
+  .experience-top, .contact-inner { flex-direction: column; }
+  .date { white-space: normal; }
+  .education-grid, .skills-grid { grid-template-columns: 1fr; }
+  .paper-resume { padding: 25px 20px; }
+  .contact-section { padding: 64px 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+@page { size: A4; margin: 14mm; }
+@media print {
+  body * { visibility: hidden !important; }
+  #resume, #resume * { visibility: visible !important; }
+  #resume { position: absolute; inset: 0 auto auto 0; width: 100%; padding: 0; margin: 0; }
+  #resume .section-heading { display: none !important; }
+  #resume .paper-resume { max-width: none; padding: 0; border: 0; box-shadow: none; }
+  #resume .paper-header h2, #resume .paper-block h3 { color: #000; }
+  #resume .paper-header p, #resume .paper-block p, #resume .paper-resume ul { color: #222; }
+  #resume a { color: #000; text-decoration: none; }
+  #resume .paper-block { margin-top: 12px; }
+}
